@@ -1,0 +1,100 @@
+.main__title{
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    font-size: 5rem;
+}
+
+#target {
+    display: flex;
+    width: 300px;
+    text-align: left;
+    animation: color 30s alternate infinite;
+    perspective: 200px;
+    transform: translateX(26px);
+}
+
+.letter {
+    transform: translateZ(200px);
+}
+
+/***************/
+.main__btn{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+#btn5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(0, 88, 219);
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 20%;
+    height: 60px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+.TxtBtn {
+    position: relative;
+    pointer-events: none;
+}
+#btn5::before{
+    --size: 0px;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    background: radial-gradient(circle closest-side , rgb(45, 152, 224), transparent); 
+    width: var(--size);
+    height: var(--size);
+    transform: translate(-50%,-50%);
+    transition: 0.1s ease;
+}
+#btn5:hover::before{
+    --size: 500px;
+
+}
+
+@media screen and (max-width: 750px) {
+    main{
+        max-width: 100%;
+    }
+    .main__title{
+        max-width: 320px;
+        font-size: 50px;
+    }
+    h3{
+        font-size: 50px;
+    }
+    #target{
+        font-size: 50px;
+    }
+}
+
+@keyframes anim {
+    25%{
+        transform: translateZ(0px);
+        opacity: 1;
+    }
+    32%{
+        transform: translateZ(-280px) translateZ(200px);
+        opacity: 0;
+    }
+}
+
+@keyframes color {
+    0%{color: rgb(40, 106, 206);}
+    50%{color: rgb(202, 38, 79);}
+    100%{color: rgb(40, 106, 206);}
+}
